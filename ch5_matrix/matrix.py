@@ -18,19 +18,23 @@ print(A.T)
 #I属性获得矩阵的逆
 print('Inverse A:')
 print(A.I)
-#mat函数，若输入已为matrix或ndarray对象，则不会创建副本，这是用mat
+#mat函数，若输入已为matrix或ndarray对象，则不会创建副本，这时用mat
 #和调用matrix(data,copy=False)等价
+
+#2.除了使用字符串创建矩阵以外, 我们还可以使用NumPy数组进行创建:
+B=np.mat(np.arange(9).reshape(3,3))
+print("B",B)
 
 print('*'*88)
 #2.从已有矩阵创建新的矩阵
-#有时需要用较小的矩阵来创建较大矩阵，用bmat实现
+#有时需要用较小的矩阵来创建较大矩阵，用bmat实现(block matrix)
 
 #创建2x2单位矩阵
-B=np.eye(2)
-print(B)
+C=np.eye(2)
+print("C:",C)
 #创建通型矩阵，乘以2
-C=2*B
-print(C)
+D=2*C
+print("D:",D)
 
-#使用字符串创建符合矩阵，格式于mat类似
-print('Compound matrix:\n',np.bmat("B C;B C"))
+#使用字符串创建复合矩阵，格式与mat类似
+print('Compound matrix:\n',np.bmat("C D;C D"))
